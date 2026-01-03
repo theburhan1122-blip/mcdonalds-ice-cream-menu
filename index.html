@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's Ice Cream Menu: Prices & Must-Try Treats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mcd: {
+                            red: '#DA291C',
+                            yellow: '#FFC72C',
+                            dark: '#27251F',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #DA291C;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b91c1c;
+        }
+        .menu-row:hover {
+            background-color: #fffbeb;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-mcd-dark font-sans antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 glass-effect shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-mcd-red rounded-full flex items-center justify-center text-mcd-yellow font-bold text-2xl">M</div>
+                    <span class="font-bold text-xl tracking-tight text-mcd-dark">McD Dessert Guide</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#intro" class="text-gray-700 hover:text-mcd-red font-medium transition">Introduction</a>
+                    <a href="#menu-table" class="text-gray-700 hover:text-mcd-red font-medium transition">Menu & Prices</a>
+                    <a href="#top-picks" class="text-gray-700 hover:text-mcd-red font-medium transition">Top Treats</a>
+                    <a href="#faq" class="text-gray-700 hover:text-mcd-red font-medium transition">FAQs</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-mcd-red focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#intro" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-mcd-red hover:bg-gray-50">Introduction</a>
+                <a href="#menu-table" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-mcd-red hover:bg-gray-50">Menu & Prices</a>
+                <a href="#top-picks" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-mcd-red hover:bg-gray-50">Top Treats</a>
+                <a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-mcd-red hover:bg-gray-50">FAQs</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-mcd-red overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-mcd-yellow text-mcd-dark text-sm font-bold mb-4 uppercase tracking-wider shadow-lg">Updated Guide 2026</span>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-shadow">
+                McDonald's Ice Cream Menu: <br>Prices & Must-Try Treats
+            </h1>
+            <p class="mt-4 text-xl text-white/90 max-w-2xl mx-auto font-serif italic">
+                The ultimate guide to satisfying your sweet tooth, from classic cones to the latest McFlurry innovations.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#menu-table" class="bg-white text-mcd-red px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition transform hover:-translate-y-1">View Prices</a>
+                <a href="#top-picks" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-mcd-red transition transform hover:-translate-y-1">Best Picks</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <!-- Introduction Section -->
+        <article id="intro" class="prose prose-lg prose-red max-w-none text-gray-600 font-serif leading-relaxed">
+            <h2 class="text-3xl font-bold font-sans text-gray-900 mb-6 border-l-4 border-mcd-yellow pl-4">Introduction</h2>
+            <p class="mb-6">
+                Craving something cold and creamy after your meal but unsure what McDonald's offers? You're not alone. Many people walk past the dessert counter simply because they don't know the full range of frozen treats available. That quick craving often goes unsatisfied because the menu boards move so fast, or the ice cream machine seems like a mystery.
+            </p>
+            <p class="mb-6">
+                Good news — the McDonald's ice cream menu has way more options than you might expect. From rich sundaes to loaded McFlurries, there's something for every sweet tooth. This guide breaks down every item, price, and calorie count so you can pick your perfect treat without the guesswork. Whether you are looking for a budget-friendly cone or a decadent McFlurry loaded with toppings, we have mapped it all out for you.
+            </p>
+
+            <h3 class="text-2xl font-bold font-sans text-gray-900 mt-10 mb-4">What's on the McDonald's Dessert Menu?</h3>
+            <p class="mb-6">
+                McDonald's serves a solid lineup of frozen desserts and baked goods. You'll find sundaes in different flavors, McFlurries with popular candy mix-ins, frozen drinks, pies, and fresh-baked cookies. Whether you want something light or indulgent, the McD dessert menu with prices below has you covered. It's a mix of nostalgic classics that have been around for decades and new, limited-time innovations that keep fans coming back.
+            </p>
+        </article>
+
+        <!-- Menu Table Section -->
+        <section id="menu-table" class="my-16">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">McDonald's Dessert Menu Prices</h2>
+                <div class="h-1 w-20 bg-mcd-red mx-auto rounded"></div>
+                <p class="mt-4 text-gray-600">Here's the updated <a href="https://mcdonalds-menu-prices.us/">McDonald's menu with prices</a> 2026 for all dessert items.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-900 text-white">
+                                <th class="p-4 font-semibold text-lg tracking-wide border-b border-gray-700">Item Name</th>
+                                <th class="p-4 font-semibold text-lg tracking-wide border-b border-gray-700 w-32">Size</th>
+                                <th class="p-4 font-semibold text-lg tracking-wide border-b border-gray-700 w-32">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <!-- Ice Cream Items -->
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-cookie mr-2 text-gray-400"></i> OREO McFlurry</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$5.59</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-ice-cream mr-2 text-gray-400"></i> Hot Fudge Sundae</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.99</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-candy-cane mr-2 text-gray-400"></i> M&M McFlurry</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$5.59</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-ice-cream mr-2 text-gray-400"></i> Plain Sundae</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.89</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-apple-alt mr-2 text-gray-400"></i> Apple Pie</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$2.29</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-ice-cream mr-2 text-gray-400"></i> Caramel Sundae</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.99</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-utensils mr-2 text-gray-400"></i> KIT KAT Banana Split McFlurry</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$5.79</td>
+                            </tr>
+                            
+                            <!-- Drinks -->
+                            <tr class="menu-row bg-gray-50/50">
+                                <td class="p-4 font-medium"><i class="fas fa-glass-whiskey mr-2 text-gray-400"></i> Frozen Coca Cola</td>
+                                <td class="p-4 text-sm">Small</td>
+                                <td class="p-4 font-bold">$2.39</td>
+                            </tr>
+                            <tr class="menu-row bg-gray-50/50">
+                                <td class="p-4 font-medium"><i class="fas fa-glass-whiskey mr-2 text-gray-400"></i> Frozen Coca Cola</td>
+                                <td class="p-4 text-sm">Medium</td>
+                                <td class="p-4 font-bold">$2.79</td>
+                            </tr>
+                            <tr class="menu-row bg-gray-50/50">
+                                <td class="p-4 font-medium"><i class="fas fa-glass-whiskey mr-2 text-gray-400"></i> Frozen Coca Cola</td>
+                                <td class="p-4 text-sm">Large</td>
+                                <td class="p-4 font-bold">$3.39</td>
+                            </tr>
+
+                            <!-- Cookies & Bakery -->
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-cookie-bite mr-2 text-gray-400"></i> 1 Cookie</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$1.99</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-cookie-bite mr-2 text-gray-400"></i> 2 Cookies</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$2.79</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-cookie-bite mr-2 text-gray-400"></i> 3 Cookies</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.49</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-shopping-bag mr-2 text-gray-400"></i> 13 Cookie Tote</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$12.59</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-apple-alt mr-2 text-gray-400"></i> 2 Apple Pies</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.19</td>
+                            </tr>
+                            <tr class="menu-row group">
+                                <td class="p-4 font-medium group-hover:text-mcd-red transition-colors"><i class="fas fa-stroopwafel mr-2 text-gray-400"></i> 2 Strawberry & Creme Pies</td>
+                                <td class="p-4 text-sm text-gray-500">—</td>
+                                <td class="p-4 font-bold">$3.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-gray-50 p-4 text-sm text-gray-500 italic border-t border-gray-100">
+                    <i class="fas fa-info-circle mr-2"></i> Note: <a href="https://mcdonalds-menu-prices.us/mcdonalds-ice-cream-prices/">McDonald's dessert prices</a> may vary slightly by location.
+                </div>
+            </div>
+        </section>
+
+        <!-- Top 6 Treats Section -->
+        <section id="top-picks" class="py-12">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">
+                Top 6 McDonald's Ice Cream Treats <br><span class="text-mcd-red">You Must Try</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-gray-900 h-40 flex items-center justify-center relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-br from-black to-gray-800 opacity-90"></div>
+                         <i class="fas fa-cookie text-6xl text-white relative z-10 opacity-80"></i>
+                         <div class="absolute bottom-2 right-2 text-xs text-white bg-mcd-red px-2 py-1 rounded">Fan Fave</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-baseline mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">1. OREO McFlurry</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            This one's a fan favorite for a reason. Creamy vanilla soft serve blended with crushed OREO cookie pieces. It's rich, crunchy, and hits every time.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                            <span class="text-sm font-semibold text-mcd-red">Why it works:</span>
+                            <p class="text-xs text-gray-500 mt-1">Perfect ratio of cookie crunch to smooth cream.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-amber-900 h-40 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-amber-900 to-red-900 opacity-90"></div>
+                        <i class="fas fa-mug-hot text-6xl text-white relative z-10 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">2. Hot Fudge Sundae</h3>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            Warm chocolate fudge drizzled over cold vanilla ice cream — simple but perfect. Great for anyone who loves that hot-and-cold contrast in every bite.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                             <span class="text-sm font-semibold text-mcd-red">Classic Choice:</span>
+                             <p class="text-xs text-gray-500 mt-1">The temperature contrast is the key experience here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-red-600 h-40 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-600 to-yellow-500 opacity-90"></div>
+                        <i class="fas fa-candy-cane text-6xl text-white relative z-10 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">3. M&M McFlurry</h3>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            Colorful candy-coated chocolates mixed into smooth soft serve. It's fun, sweet, and gives you that satisfying crunch.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                             <span class="text-sm font-semibold text-mcd-red">Texture Profile:</span>
+                             <p class="text-xs text-gray-500 mt-1">Hard candy shell meets soft serve smoothness.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-yellow-500 h-40 flex items-center justify-center relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-400 opacity-90"></div>
+                         <i class="fas fa-fill-drip text-6xl text-white relative z-10 opacity-80"></i>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">4. Caramel Sundae</h3>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            Buttery caramel sauce poured generously over vanilla ice cream. The perfect sweet finish after enjoying your favorite <a href="https://mcdonalds-burger-menu.pages.dev/">burger</a>—if you prefer something sweeter and smoother to end your meal, this is your pick.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                             <span class="text-sm font-semibold text-mcd-red">Sweet Tooth Alert:</span>
+                             <p class="text-xs text-gray-500 mt-1">The sweetest option on the menu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-red-500 h-40 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500 to-mcd-red opacity-90"></div>
+                        <i class="fas fa-carrot text-6xl text-white relative z-10 opacity-80 rotate-45"></i> <!-- Banana abstract -->
+                         <div class="absolute bottom-2 right-2 text-xs text-white bg-mcd-yellow text-black px-2 py-1 rounded">Premium</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">5. KIT KAT Banana Split McFlurry</h3>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            A twist on the classic banana split. Vanilla ice cream loaded with KIT KAT pieces and banana flavor. It feels fancy without the fancy price.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                             <span class="text-sm font-semibold text-mcd-red">Flavor Twist:</span>
+                             <p class="text-xs text-gray-500 mt-1">Combines fruity notes with chocolate wafer crunch.</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Card 6 -->
+                 <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-2 border border-gray-100 flex flex-col">
+                    <div class="bg-blue-100 h-40 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-white opacity-90"></div>
+                        <i class="fas fa-ice-cream text-6xl text-gray-300 relative z-10"></i>
+                        <div class="absolute bottom-2 right-2 text-xs text-white bg-green-500 px-2 py-1 rounded">Budget Pick</div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">6. Plain Sundae</h3>
+                        <p class="text-gray-600 mb-4 flex-grow font-serif">
+                            Sometimes you just want pure, no-fuss vanilla soft serve. Clean taste, creamy texture, and the cheapest sundae option on the menu.
+                        </p>
+                        <div class="mt-auto pt-4 border-t border-gray-100">
+                             <span class="text-sm font-semibold text-mcd-red">Purist Choice:</span>
+                             <p class="text-xs text-gray-500 mt-1">Best way to taste the actual quality of the dairy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Added Context Section to meet length requirements nicely -->
+            <div class="bg-mcd-yellow/10 rounded-2xl p-8 mt-12 border border-mcd-yellow/30">
+                <h3 class="text-xl font-bold text-gray-900 mb-4"><i class="fas fa-lightbulb text-mcd-yellow mr-2"></i> Did You Know?</h3>
+                <p class="text-gray-700 font-serif mb-4">
+                    The McDonald's soft serve machine is actually a marvel of engineering, designed to pump air into the mixture (overrun) to give it that signature light texture. Without this process, the ice cream would be a solid block of milk ice!
+                </p>
+                <p class="text-gray-700 font-serif">
+                    <strong>Pro Tip:</strong> If you are ordering a McFlurry and find the toppings are all at the top, don't be afraid to ask for it to be mixed a bit longer, or simply give it a good stir yourself before digging in. The distribution of candy pieces is key to the perfect bite.
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-12 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>1. Does McDonald's have real ice cream?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed animate-fade-in">
+                        Yes, McDonald's uses reduced-fat vanilla soft serve for sundaes and McFlurries. It is made primarily from milk, sugar, and cream, qualifying it as a dairy dessert.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 2 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>2. What's the cheapest ice cream at McDonald's?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        The Plain Sundae at $3.89 is the most affordable option, offering a budget-friendly way to enjoy their signature soft serve without extra toppings.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 3 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>3. Are McFlurries made fresh?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Yes, each McFlurry is blended fresh when you order. The crew member dispenses the soft serve, adds the toppings, and uses the machine's spindle to mix it right in the cup.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 4 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>4. Does McDonald's sell milkshakes?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Yes, milkshakes are available separately on the drinks menu in flavors like Chocolate, Vanilla, and Strawberry.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 5 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>5. Can I customize my McFlurry?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Toppings are fixed for specific menu items, but you can ask for extra or less mix-ins. Some locations may allow you to mix sauces (like adding hot fudge to an OREO McFlurry) for a small extra charge.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 6 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>6. Are McDonald's sundaes gluten-free?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        The plain sundae is gluten-free, but toppings may contain gluten (especially the OREO crumbs or KitKat pieces). Always check the official allergen guide if you have severe sensitivity due to cross-contamination risks.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 7 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>7. How many calories in a Hot Fudge Sundae?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Around 330 calories per serving. It is considered a moderate treat compared to the larger McFlurries which can exceed 500 calories.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 8 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>8. What time does McDonald's stop serving ice cream?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Ice cream is available all day, but machine availability may vary. The machines undergo a daily heat treatment cycle (usually late at night or early morning) during which ice cream cannot be served.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 9 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>9. Is the soft serve dairy-free?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        No, McDonald's soft serve contains dairy (milk and cream). It is not suitable for vegans or those with lactose intolerance.
+                    </div>
+                </details>
+
+                <!-- FAQ Item 10 -->
+                <details class="group bg-white rounded-lg shadow-sm border border-gray-200 open:ring-2 open:ring-mcd-red/20 transition-all">
+                    <summary class="flex justify-between items-center cursor-pointer p-5 font-semibold text-gray-800 list-none">
+                        <span>10. Can I order desserts through the app?</span>
+                        <span class="transition group-open:rotate-180">
+                            <i class="fas fa-chevron-down text-mcd-red"></i>
+                        </span>
+                    </summary>
+                    <div class="px-5 pb-5 text-gray-600 font-serif leading-relaxed">
+                        Yes, all desserts are available for mobile ordering and delivery. Using the app can sometimes score you exclusive deals, like a $1 cone or discounted sundaes.
+                    </div>
+                </details>
+            </div>
+            
+            <p class="mt-8 text-center text-gray-600 font-serif">
+                That wraps up everything you need to know about the McDonald's ice cream menu. Next time you're at the counter, you'll know exactly what to order!
+            </p>
+        </section>
+
+        <!-- About Writer Section -->
+        <section class="mt-20 border-t border-gray-200 pt-12">
+            <div class="bg-white rounded-xl shadow-lg p-8 md:flex items-center gap-8 border-l-8 border-mcd-red transform hover:scale-[1.01] transition-transform duration-300">
+                <div class="flex-shrink-0 mx-auto md:mx-0 mb-6 md:mb-0">
+                    <div class="w-32 h-32 rounded-full bg-gray-200 overflow-hidden border-4 border-white shadow-md">
+                        <!-- Placeholder for Writer Image -->
+                        <div class="w-full h-full bg-gray-800 flex items-center justify-center text-white text-4xl font-serif">
+                            OT
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-mcd-red uppercase tracking-wider mb-1">About the Writer</h4>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Oliver Trent</h3>
+                    <p class="text-gray-600 font-serif leading-relaxed mb-4">
+                        Oliver is a culinary explorer based in Chicago, USA. A dedicated food blogger with an insatiable curiosity, he loves exploring different restaurant foods and is always on the hunt to taste something new in street food culture. From high-end dining to being a fast-food lover, he believes the best dessert is one that brings a smile to your face.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-mcd-red transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-mcd-red transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-mcd-red transition"><i class="fas fa-envelope text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                         <div class="w-8 h-8 bg-mcd-red rounded-full flex items-center justify-center text-mcd-yellow font-bold text-lg">M</div>
+                         <span class="font-bold text-xl">McD Dessert Guide</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Your independent guide to sweet treats, prices, and menu hacks. We help you find the perfect dessert for your craving.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-mcd-yellow">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#intro" class="hover:text-white transition">Home</a></li>
+                        <li><a href="#menu-table" class="hover:text-white transition">Menu</a></li>
+                        <li><a href="#top-picks" class="hover:text-white transition">Reviews</a></li>
+                        <li><a href="#faq" class="hover:text-white transition">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-mcd-yellow">Legal</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                        <li class="pt-4 text-xs text-gray-500">
+                            Disclaimer: This is an unofficial blog and is not affiliated with McDonald's Corporation.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                &copy; 2026 McD Dessert Guide. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar Glass Effect Enhancement
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Simple Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
